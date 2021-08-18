@@ -1,0 +1,52 @@
+﻿@*Представления напоминают html-страницы, так как могут содержать и часто содержат очень много кода html. Но кроме
+    собственно html они также содержат специальные инструкции, которые предваряются символом @. Это инструкции синтаксиса
+    Razor - специального движка представлений, который позволяет использовать вместе с html и код на языке C#*@
+
+@*@{
+        ViewData["Title"] = "Home Page";
+    }
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome! *CUSTOM MESSAGE! HELLO WORLD!</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+
+@*Путь к нужной модели с ее данными*@
+@model IEnumerable<ASP.Net_MVC_Educational.Models.Car>
+@{
+    //ViewData["Title"] = "Список автомобилей";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Магазин автомобилей</title>
+</head>
+<body>
+    <h1>HELLO WORLD!!!</h1>
+    <h3>Автомобили</h3>
+    <table>
+        <tr>
+            <td>Модель</td>
+            <td>Производитель</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+        @foreach (var car in Model)
+        {
+    <tr>
+        <td>@car.Name</td>
+        <td>@car.Company</td>
+        <td>@car.Price</td>
+        @*передает в контроллер в метод Buy; надо указать в строке запроса его имя - Home и далее через 
+            слеш указать метод контроллера, к которому отправляется запрос, например, Home/Index.  *@
+        <td>
+            <a href="~/Home/Buy/@car.Id">Купить</a>
+        </td>
+    </tr>
+        }
+    </table>
+</body>
+</html>

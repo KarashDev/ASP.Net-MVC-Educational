@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Оформление заказа</title>
+</head>
+<body>
+    <div>
+        <h3>Форма оформления покупки</h3>
+        <p>Для оформления покупки заполните следующие поля:</p>
+        <form method="post">
+            @*пользователю не нужно видеть значение этой переменной, поэтому вносим в скрытое поле;
+            После заполнения формы и нажатия на кнопку форма будет оправляться запросом POST, так как мы его 
+            определили в строке <form method="post">.*@
+            <input type="hidden" value="@ViewBag.CarId" name="CarId" />
+            <table>
+                <tr>
+                    <td>Имя:</td>
+                    <td>
+                        <input type="text" name="User" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Адрес:</td>
+                    <td>
+                        <input type="text" name="Address" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Телефон:</td>
+                    <td>
+                        <input type="text" name="ContactPhone" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Отправить" />
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.Net MVC Educational", "ASP.Net MVC Educational\ASP.Net MVC Educational.csproj", "{84408328-8FAF-4516-98C1-F9EC63E7E3A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84408328-8FAF-4516-98C1-F9EC63E7E3A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84408328-8FAF-4516-98C1-F9EC63E7E3A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84408328-8FAF-4516-98C1-F9EC63E7E3A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84408328-8FAF-4516-98C1-F9EC63E7E3A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB44F481-F98E-4CAE-B40A-46F63E44BD09}
+	EndGlobalSection
+EndGlobal
