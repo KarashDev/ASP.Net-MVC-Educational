@@ -12,11 +12,13 @@
     </div>*@
 
 
-@*Путь к нужной модели с ее данными*@
+@*Путь к нужной модели с ее данными(папка проекта)*@
 @model IEnumerable<ASP.Net_MVC_Educational.Models.Car>
 @{
-    //ViewData["Title"] = "Список автомобилей";
-    Layout = null;
+    ViewData["Title"] = "Список автомобилей";
+   
+    //Указание названия шаблона внешнего вида
+    Layout = "_Layout";
 }
 <!DOCTYPE html>
 

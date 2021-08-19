@@ -30,7 +30,7 @@ namespace ASP.Net_MVC_Educational.Controllers
         public IActionResult Index()
         {
             //return View();
-            
+
             // Передача данных в представление 
             return View(db.Cars.ToList());
         }
@@ -58,11 +58,13 @@ namespace ASP.Net_MVC_Educational.Controllers
         {
             // Если Id не передан - идет переадресация на вызов страницы Index()
             if (id == null) return RedirectToAction("Index");
-           
-            ViewBag.PhoneId = id;
+
+            // ViewBag представляет объект, позволяющий определить любую переменную и передать ей некоторое значение, а затем
+            // в представлении извлечь это значение. С помощью этого ViewBag переносится id автомобиля с Index.cshtml на Buy.cshtml
+            ViewBag.CarId = id;
             return View();
         }
-        
+
         // После нажатия на кнопку "отправить" с формы, вызванной предыдущим методом, выполняется запрос типа POST,
         // отправляющий данные на сервер, и выводящий сообщение на новой странице
         [HttpPost]
