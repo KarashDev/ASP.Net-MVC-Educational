@@ -16,7 +16,7 @@
 @model IEnumerable<ASP.Net_MVC_Educational.Models.Car>
 @{
     ViewData["Title"] = "Список автомобилей";
-   
+
     //Указание названия шаблона внешнего вида
     Layout = "_Layout";
 }
@@ -38,17 +38,19 @@
         </tr>
         @foreach (var car in Model)
         {
-    <tr>
-        <td>@car.Name</td>
-        <td>@car.Company</td>
-        <td>@car.Price</td>
-        @*передает в контроллер в метод Buy; надо указать в строке запроса его имя - Home и далее через 
-            слеш указать метод контроллера, к которому отправляется запрос, например, Home/Index.  *@
-        <td>
-            <a href="~/Home/Buy/@car.Id">Купить</a>
-        </td>
-    </tr>
+            <tr>
+                <td>@car.Name</td>
+                <td>@car.Company</td>
+                <td>@car.Price</td>
+                @*передает в контроллер в метод Buy; надо указать в строке запроса его имя - Home и далее через
+                    слеш указать метод контроллера, к которому отправляется запрос, например, Home/Index.  *@
+                <td>
+                    <a href="~/Home/Buy/@car.Id">Купить</a>
+                </td>
+            </tr>
         }
     </table>
+    <a href="~/Home/Privacy">Политика приватности</a>
+
 </body>
 </html>

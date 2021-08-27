@@ -9,9 +9,16 @@ using System.Threading.Tasks;
 
 namespace ASP.Net_MVC_Educational.Controllers
 {
+    //Центральным звеном в архитектуре ASP.NET Core MVC является контроллер. При получении запроса система маршрутизации
+    //выбирает для обработки запроса нужный контроллер и передает ему данные запроса. Контроллер обрабатывает эти данные
+    //и посылает обратно результат обработки.
+
+    //Чтобы обратиться контроллеру из веб-браузера, нам надо в адресной строке набрать адрес_сайта/Имя_контроллера/Действие_контроллера.
+    //Так, по запросу адрес_сайта/Home/Index система маршрутизации по умолчанию вызовет метод Index контроллера HomeController
+    //для обработки входящего запроса.
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> logger;
         private readonly CarStoreDbContext db;
 
         /// <summary>
@@ -21,12 +28,13 @@ namespace ASP.Net_MVC_Educational.Controllers
         /// <param name="context">контекст подключения к базе данных</param>
         public HomeController(ILogger<HomeController> logger, CarStoreDbContext context)
         {
-            _logger = logger;
+            this.logger = logger;
             db = context;
         }
 
-        // Название метода ассоциируется с названием компонента View - контроллер загружает представление
-        // с таким же названием
+        // Название метода (ДЕЙСТВИЯ контроллера) ассоциируется с названием компонента View - контроллер 
+        // загружает представление с таким же названием. ВАЖНО: сопоставление происходит в маршрутизаторе
+        // app.UseEndpoints
         public IActionResult Index()
         {
             //return View();
@@ -45,15 +53,25 @@ namespace ASP.Net_MVC_Educational.Controllers
         {
             return View();
         }
+        
+        [NonAction] // НЕ РАБОТАЕТ: НЕ РАССМАТРИВАЕТСЯ КАК ДЕЙСТВИЕ
+        public IActionResult Hi()
+        {
+            return View();
+        }
 
-
+        // НЕ РАБОТАЕТ: модификатор доступа не public. Тем не менее, закрытые методы полезны для промежуточных вычислений.
+        protected internal string Hello()
+        {
+            return "Hello ASP.NET";
+        }
         // Благодаря аннотации мы позволяем системе выбрать нужный метод в зависимости от типа запроса;
 
         // Здесь используются оба метода
         // При переходе на главной странице по ссылке "/Home/Buy/1" контроллер будет получать запрос к первому действию Buy,
         // передавая ему в качестве параметра id значение 1. И так как такой запрос представляет тип GET, пользователю 
         // будет возвращаться представление с формой для ввода данных.
-        [HttpGet]
+        [HttpGet] //Если атрибут явным образом не указан, то метод может обрабатывать все типы запросов: GET, POST, PUT, DELETE.
         public IActionResult Buy(int? id)
         {
             // Если Id не передан - идет переадресация на вызов страницы Index()
