@@ -52,11 +52,22 @@ namespace ASP.Net_MVC_Educational
 
             app.UseAuthorization();
 
+            // Либо UseEndPoints(новый подход), либо UseMvc(старый подход)
+            // Этот тип маршрутизации называется Convention-Based Routing
+            // Если используется маршрутизация на основе атрибутов, тут можно вообще не определять endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                
+                // == Если используются пользовательские области (Areas), здесь необходимо прописать путь к ним (неважно MVC или нет)
+                //endpoints.MapControllerRoute(
+                //   name: "MyArea",
+                // pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                //endpoints.MapControllerRoute(
+                //    name: "default",
+                //    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

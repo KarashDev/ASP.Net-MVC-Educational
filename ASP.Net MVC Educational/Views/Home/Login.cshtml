@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+<form method="post">
+    <p>
+        <label>Логин:</label><br />
+        <input type="text" name="login" />
+    </p>
+
+    <p>
+        <label>Пароль:</label><br />
+        <input type="password" name="password" />
+    </p>
+
+    <p>
+        <label>Возраст:</label><br />
+        <input type="number" name="age" />
+    </p>
+
+    <p>
+        <label>Комментарий:</label><br />
+        <textarea name="comment"></textarea>
+    </p>
+
+    <p>
+        <label>Женат/Замужем:</label><br />
+        <input type="checkbox" name="isMarried" value="true" />
+    </p>
+
+    <p>
+        <label for="phone">Выберите модель:</label>
+        <select name="phone">
+            <option value="iPhone 6S">Apple</option>
+            <option value="Lumia 950 XL">Microsoft</option>
+            <option value="HTC 10">HTC</option>
+            <option value="Galaxy EDGE S7">Samsung</option>
+        </select>
+    </p>
+
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>

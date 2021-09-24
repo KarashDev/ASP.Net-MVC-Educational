@@ -1,0 +1,91 @@
+﻿@{
+    string head = "Hello world";
+    @: <b>Привет мир!</b>
+    head = head + "!!";
+}
+<p>@head</p>
+
+@{
+    int x = 6;
+}
+
+
+@switch (x)
+{
+    case 5:
+        <p>@(x* x)</p>
+        break;
+    case 6:
+        <p>@(x+ x)</p>
+        break;
+}
+
+
+@for (var i = 1; i < 6; i++)
+{
+    <p>Строка: @i</p>
+}
+
+
+@{
+    string[] phones = { "Lumia 950", "iPhone 6S", "Galaxy S 6", "LG G4" };
+}
+<ul>
+    @foreach (var phone in phones)
+    {
+        <li>@phone</li>
+    }
+</ul>
+
+
+<!--вывод текста в блоке кода требует @*@:*@ -->
+@{
+    bool isEnabled = true;
+}
+@if (isEnabled)
+{
+    @: Добро пожаловать
+}
+
+
+<!--Специальная директива @*@functions*@ позволяет создавать и использовать методы*-->
+@functions
+{
+    public int GetFactorial(int n)
+    {
+        int result = 1;
+        for (int i = 1; i <= n; i++)
+            result *= i;
+        return result;
+    }
+
+    public string GetHello()
+    {
+        return "Hello!!! Function here!";
+    }
+}
+<div>Факториал числа 6 равен: @GetFactorial(6);</div>
+<div>@GetHello();</div>
+
+
+<!--Перенос текста из контроллера переменной ViewBag-->
+<div>@ViewBag.Message</div>
+
+@foreach (var country in ViewBag.Countries)
+{
+    <p>@country</p>
+}
+
+
+<!--Чтобы использовать в коде представления нужный класс, необходимо подключить пространство имен
+@*using ASP.Net_MVC_Educational.Models*@ либо здесь, либо в _ViewImports.cshtml -->
+@{
+    Car car = new Car { Id = 25, Company = "Bmw", Name = "s7", Price = 505000 };
+}
+
+<!--Внедрение зависимостей; производится командой inject; сервис уже должен быть зарегистирован
+в контроллере-->
+@*inject ASP.Net_MVC_Educational.SimpleTimeService timeService
+    <h3>Текущее время: @timeService.Time</h3>>*@
+
+    

@@ -36,6 +36,7 @@
             <td>Цена</td>
             <td></td>
         </tr>
+        @*блок кода начинается с одной @*@
         @foreach (var car in Model)
         {
             <tr>
@@ -51,6 +52,13 @@
         }
     </table>
     <a href="~/Home/Privacy">Политика приватности</a>
+    <p>@@ @@Становится управляющим символом игнорирования текста C#: DateTime.Now =@DateTime.Now.ToLongDateString()</p>
+
+    <h3>*Конец представления Index.cshtml</h3>
+    <!--Вставка частичного представления в полноценное; метод частичного представления не вызывается-->
+    <!--Медленный вариант : await Html.PartialAsync("PartialViewMessage"); также можно передать модель
+    в частичное представление, сделав его строго типизированным (в самой модели тогда вызов объекта model)-->
+    @{await Html.RenderPartialAsync("PartialViewMessage");}
 
 </body>
-</html>
+    </html>

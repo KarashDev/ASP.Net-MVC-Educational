@@ -11,10 +11,11 @@ namespace ASP.Net_MVC_Educational
     }
     public class SimpleTimeService : ITimeService
     {
+        public string Time { get; }
+        
         public SimpleTimeService()
         {
             Time = DateTime.Now.ToString("hh:mm:ss");
         }
-        public string Time { get; }
     }
 }
