@@ -359,10 +359,8 @@ namespace ASP.Net_MVC_Educational.Controllers
 		}
 
 
-
 		// МАРШРУТИЗАЦИЯ ЗА СЧЕТ АТРИБУТОВ
 		// Возможно использовать маршрутизацию на основе атрибутов (Attribute-Based Routing)
-
 		[NonAction] // НЕ РАБОТАЕТ: НЕ РАССМАТРИВАЕТСЯ КАК ДЕЙСТВИЕ
 		public IActionResult Hi()
 		{
@@ -387,7 +385,7 @@ namespace ASP.Net_MVC_Educational.Controllers
 			return Content(answerToClient);
 		}
 
-		// Множественные маршруты также поддерживаются атрибутами; метод будет вызыван при любом из указанных запросов
+		// Множественные маршруты также поддерживаются атрибутами; метод будет вызван при любом из указанных запросов
 		[Route("")]
 		[Route("hi")]
 		[Route("Home/hi")]
